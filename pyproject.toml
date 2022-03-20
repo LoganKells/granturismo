@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "granturismo"
+version = "0.1.0"
+description = "Remote play control for GT7"
+authors = ["aimerror"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10.1"
+ahk = { version = "0.13.0" }
+mss = { version = "6.1.0" }
+numpy = { version = "1.22.0" }
+opencv-python = { version = "4.5.5.62" }
+pynput = { version = "1.7.6" }
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
