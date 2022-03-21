@@ -1,14 +1,14 @@
 from ahk import AHK
 from ahk.window import Window
 
-ahk = AHK()
+my_ahk = AHK()
 client = None
 
 def is_window_active():
     global client
     return client.id != ''
 
-client = ahk.win_get(title='Chiaki | Stream')
+client = my_ahk.win_get(title='Chiaki | Stream')
 
 def x():
     return client.rect[0]

@@ -149,7 +149,7 @@ while True:
     is_steering_left = False
     keyboard_controller.press('5') # throttle
     keyboard_controller.press('6') # nitro / electro boost power
-
+    similarity_tolerance = -3.0
     while is_racing:
         steering_grab = np.array(sct.grab(steering_rect))
         finish_grab =  np.array(sct.grab(finish_rect))
@@ -160,10 +160,10 @@ while True:
         similarity = 1 - errorL2 / ( height * width )
         #print('Similarity = ',similarity)
         ## Check if the countersteering icon is white then we need to steer right to keep hugging the wall on the straight
-        if not is_steering_right and similarity >= 0.05:
+        if not is_steering_right and similarity >= similarity_tolerance:
             keyboard_controller.press('d')
             is_steering_right = True
-        elif is_steering_right and similarity < 0.05: # release the button if we no longer the to be steering towards the wall
+        elif is_steering_right and similarity < similarity_tolerance: # release the button if we no longer the to be steering towards the wall
             keyboard_controller.release('d')
             is_steering_right = False
 
